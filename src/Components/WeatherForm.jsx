@@ -1,19 +1,9 @@
-import { useEffect } from "react";
-import "./WeatherForm.css"; // ✅ Ny CSS för formuläret
-
-function WeatherForm({ city, setCity, fetchWeather }) {
-  useEffect(() => {
-    const savedCity = localStorage.getItem("lastCity");
-    if (savedCity) {
-      setCity(savedCity);
-    }
-  }, [setCity]);
-
+function WeatherForm({ city, setCity, getWeather }) {
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!city) return;
-    localStorage.setItem("lastCity", city);
-    fetchWeather();
+    if (city.trim()) {
+      getWeather(city);
+    }
   };
 
   return (
@@ -22,10 +12,10 @@ function WeatherForm({ city, setCity, fetchWeather }) {
         type="text"
         value={city}
         onChange={(e) => setCity(e.target.value)}
-        placeholder="Skriv stad"
-        className="city-input"
+        placeholder="Ange stad"
+        className="weather-input"
       />
-      <button type="submit" className="search-button">
+      <button type="submit" className="weather-button">
         Sök
       </button>
     </form>
