@@ -9,17 +9,25 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
 
-  const apiKey = "DIN_API_KEY_HÄR";
+  const apiKey = "74f90edf917d0ac2f26cad59accec277";
 
-  const getWeather = async (cityName) => {
+  const fetchWeather = async () => {
     try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric&lang=sv`
-      );
-      setWeather(response.data);
       setError(null);
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=74f90edf917d0ac2f26cad59accec277&units=metric&lang=sv`
+      );
+
+      const forecastResponse = await axios.get(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=74f90edf917d0ac2f26cad59accec277&units=metric&lang=sv`
+      );
+
+      setWeather({
+        current: response.data,
+        forecast: forecastResponse.data,
+      });
     } catch (err) {
-      setError("Kunde inte hitta staden, försök igen.");
+      setError("Stad hittades inte");
       setWeather(null);
     }
   };
@@ -27,8 +35,8 @@ function App() {
   return (
     <div className="app-container">
       <h1>Väderapp</h1>
-      <WeatherForm city={city} setCity={setCity} getWeather={getWeather} />
-      {error && <p>{error}</p>}
+      <WeatherForm city={city} setCity={setCity} fetchWeather={fetchWeather} />
+      {error && <p className="error-message">{error}</p>}
       {weather && <WeatherDisplay weather={weather} />}
     </div>
   );

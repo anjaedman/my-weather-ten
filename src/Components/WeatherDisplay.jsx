@@ -32,7 +32,6 @@ function WeatherDisplay({ weather }) {
     forecastByDay[date][closestHour] = item;
   });
 
-  // Temperaturklass
   const tempClass = (temp) => {
     if (temp <= 5) return "cold";
     if (temp <= 15) return "mild";
@@ -49,7 +48,7 @@ function WeatherDisplay({ weather }) {
       <h3>Dagens prognos</h3>
       <div className="weather-today">
         {Object.entries(todayForecast).map(([hour, item]) => (
-          <div key={item.dt} className="weather-card">
+          <div key={item.dt} className="weather-card today-card">
             <p className="hour">{hour}:00</p>
             <img
               className="weather-icon"
@@ -65,36 +64,38 @@ function WeatherDisplay({ weather }) {
       </div>
 
       <h3>5-dygnsprognos</h3>
-      {Object.entries(forecastByDay).map(([date, hoursObj]) => (
-        <div key={date} className="forecast-day">
-          <h4>
-            {(() => {
-              const dateStr = new Date(date).toLocaleDateString("sv-SE", {
-                weekday: "short",
-                day: "numeric",
-                month: "short",
-              });
-              return dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
-            })()}
-          </h4>
-          <div className="weather-day">
-            {Object.entries(hoursObj).map(([hour, item]) => (
-              <div key={item.dt} className="weather-card">
-                <p className="hour">{hour}:00</p>
-                <img
-                  className="weather-icon"
-                  src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@4x.png`}
-                  alt={item.weather[0].description}
-                />
-                <p className={`temp ${tempClass(item.main.temp)}`}>
-                  {Math.round(item.main.temp)}°C
-                </p>
-                <p className="desc">{item.weather[0].description}</p>
-              </div>
-            ))}
+      <div className="forecast-container">
+        {Object.entries(forecastByDay).map(([date, hoursObj]) => (
+          <div key={date} className="forecast-day">
+            <h4>
+              {(() => {
+                const dateStr = new Date(date).toLocaleDateString("sv-SE", {
+                  weekday: "short",
+                  day: "numeric",
+                  month: "short",
+                });
+                return dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
+              })()}
+            </h4>
+            <div className="weather-day">
+              {Object.entries(hoursObj).map(([hour, item]) => (
+                <div key={item.dt} className="weather-card">
+                  <p className="hour">{hour}:00</p>
+                  <img
+                    className="weather-icon"
+                    src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@4x.png`}
+                    alt={item.weather[0].description}
+                  />
+                  <p className={`temp ${tempClass(item.main.temp)}`}>
+                    {Math.round(item.main.temp)}°C
+                  </p>
+                  <p className="desc">{item.weather[0].description}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
