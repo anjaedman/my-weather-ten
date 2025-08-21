@@ -25,6 +25,7 @@ function WeatherForm({ city, setCity, fetchWeather }) {
         gap: "0.5rem",
         justifyContent: "center", // ändrad
         flexWrap: "wrap", // radbryt på mobil
+        color: "#fff",
       }}
     >
       <input
@@ -42,6 +43,7 @@ function WeatherForm({ city, setCity, fetchWeather }) {
           flex: "1", // växer med skärmen
           minWidth: "150px", // smalare på mobil
           maxWidth: "300px",
+          color: "#fff",
         }}
       />
       <button
