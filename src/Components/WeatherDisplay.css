@@ -40,7 +40,7 @@
 .weather-today,
 .weather-day {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 1rem;
   justify-items: center;
   width: 100%;
@@ -52,12 +52,13 @@
   text-align: center;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: rem;
+  padding: 1rem;
   border-radius: 15px;
   color: #fff;
   backdrop-filter: blur(6px);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  width: 140px;
+  width: 100%; /* ändrad */
+  max-width: 160px; /* maxstorlek */
 }
 
 .weather-card:hover {
@@ -112,4 +113,20 @@
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 0.3rem;
+}
+
+/* För mobiler under 500px */
+@media (max-width: 500px) {
+  .current-temp {
+    font-size: 1.5rem;
+  }
+
+  .weather-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .temp {
+    font-size: 1rem;
+  }
 }

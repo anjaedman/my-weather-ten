@@ -23,8 +23,8 @@ function WeatherForm({ city, setCity, fetchWeather }) {
         marginBottom: "1rem",
         display: "flex",
         gap: "0.5rem",
-        justifySelf: "center",
-        marginLeft: "11%",
+        justifyContent: "center", // ändrad
+        flexWrap: "wrap", // radbryt på mobil
       }}
     >
       <input
@@ -39,7 +39,8 @@ function WeatherForm({ city, setCity, fetchWeather }) {
           borderRadius: "5px",
           border: "1px solid #60cd62ff",
           backgroundColor: "#132f14ff",
-          minWidth: "200px",
+          flex: "1", // växer med skärmen
+          minWidth: "150px", // smalare på mobil
           maxWidth: "300px",
         }}
       />
