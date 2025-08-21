@@ -24,7 +24,7 @@ function WeatherForm({ city, setCity, fetchWeather }) {
         display: "flex",
         gap: "0.5rem",
         justifySelf: "center",
-        marginLeft: "10%",
+        marginLeft: "11%",
       }}
     >
       <input
