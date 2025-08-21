@@ -32,7 +32,7 @@ function WeatherDisplay({ weather }) {
     forecastByDay[date][closestHour] = item;
   });
 
-  // Funktion för temperaturklass
+  // Temperaturklass
   const tempClass = (temp) => {
     if (temp <= 5) return "cold";
     if (temp <= 15) return "mild";
@@ -56,7 +56,7 @@ function WeatherDisplay({ weather }) {
               src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@4x.png`}
               alt={item.weather[0].description}
             />
-            <p className="temp" data-temp={tempClass(item.main.temp)}>
+            <p className={`temp ${tempClass(item.main.temp)}`}>
               {Math.round(item.main.temp)}°C
             </p>
             <p className="desc">{item.weather[0].description}</p>
@@ -86,7 +86,7 @@ function WeatherDisplay({ weather }) {
                   src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@4x.png`}
                   alt={item.weather[0].description}
                 />
-                <p className="temp" data-temp={tempClass(item.main.temp)}>
+                <p className={`temp ${tempClass(item.main.temp)}`}>
                   {Math.round(item.main.temp)}°C
                 </p>
                 <p className="desc">{item.weather[0].description}</p>

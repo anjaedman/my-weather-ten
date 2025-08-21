@@ -1,0 +1,45 @@
+.weather-form {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap; /* ✅ gör att input + knapp bryter rad på mobil */
+}
+
+.city-input {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #60cd62;
+  background-color: #132f14;
+  min-width: 150px;
+  max-width: 300px;
+  color: #fff;
+}
+
+.search-button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #4caf50;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-button:hover {
+  background-color: #43a047;
+}
+
+/* 🔹 Mobilanpassning */
+@media (max-width: 500px) {
+  .city-input {
+    width: 100%;
+    max-width: none;
+  }
+  .search-button {
+    width: 100%;
+  }
+}
