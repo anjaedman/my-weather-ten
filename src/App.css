@@ -1,0 +1,100 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgb(6, 24, 10);
+} */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(6, 24, 10);
+  color: white;
+}
+
+/* Huvudcontainer */
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Rubrik */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Sökfält och knapp */
+.search-box {
+  margin-bottom: 1.5rem;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  margin-left: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+/* Väderkort container */
+.weather-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Enskilt kort */
+.weather-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.weather-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.weather-card img {
+  width: 60px;
+  height: 60px;
+}
+
+.weather-card p {
+  margin: 0.3rem 0;
+}
+
+/* Mobilanpassning */
+@media (max-width: 600px) {
+  .weather-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .weather-card {
+    width: 80%;
+  }
+}
