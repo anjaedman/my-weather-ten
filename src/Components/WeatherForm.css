@@ -2,7 +2,7 @@
   display: flex;
   gap: 0.5rem;
   justify-content: center;
-  flex-wrap: wrap; /* gör att input + knapp bryter rad på små skärmar */
+  flex-wrap: wrap;
   margin-bottom: 1rem;
 }
 
@@ -33,7 +33,6 @@
   background-color: #43a047;
 }
 
-/* Mobilanpassning */
 @media (max-width: 500px) {
   .weather-input {
     width: 100%;

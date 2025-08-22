@@ -31,7 +31,7 @@
 /* 5-dygnsprognos */
 .forecast-container {
   display: flex;
-  flex-direction: column; /* tvingar dagarna vertikalt */
+  flex-direction: column;
   gap: 1rem;
   width: 100%;
   max-width: 700px;
@@ -39,7 +39,7 @@
 
 .forecast-day {
   display: block;
-  min-width: 100%; /* säkerställer full rad */
+  width: 100%;
   background: rgba(255, 255, 255, 0.08);
   padding: 1rem;
   border-radius: 12px;

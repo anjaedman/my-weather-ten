@@ -1,6 +1,6 @@
 import "./WeatherDisplay.css";
 
-function WeatherDisplay({ weather, forecast }) {
+function WeatherDisplay({ weather, forecast, showForecast }) {
   const desiredHours = [8, 12, 18, 23];
 
   const closestHour = (hour) => {
@@ -49,6 +49,7 @@ function WeatherDisplay({ weather, forecast }) {
       <p className="current-temp">{Math.round(weather.main.temp)}°C</p>
       <p className="current-desc">{weather.weather[0].description}</p>
 
+      {/* Dagens prognos alltid synlig */}
       {Object.keys(todayForecast).length > 0 && (
         <>
           <h3>Dagens prognos</h3>
@@ -71,7 +72,8 @@ function WeatherDisplay({ weather, forecast }) {
         </>
       )}
 
-      {forecast && (
+      {/* 5-dygnsprognos visas endast om showForecast är true */}
+      {showForecast && forecast && (
         <>
           <h3>5-dygnsprognos</h3>
           <div className="forecast-container">
