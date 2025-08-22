@@ -131,3 +131,20 @@
     max-width: 250px; /* på liten mobil tar boxarna nästan hela bredden */
   }
 }
+
+@media (max-width: 1080px) {
+  .weather-form {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 10px;
+  }
+  .weather-input,
+  .weather-button {
+    width: 100%;
+  }
+  .weather-card,
+  .today-card {
+    width: 100%;
+    max-width: 250px;
+  }
+}
