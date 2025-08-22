@@ -4,6 +4,8 @@
   gap: 0.5rem;
   align-items: center;
   margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .weather-input {
@@ -43,6 +45,6 @@
     max-width: none;
   }
   .weather-button {
-    width: 60%;
+    width: 40%;
   }
 }
