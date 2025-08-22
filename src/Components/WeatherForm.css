@@ -8,8 +8,8 @@
 
 .weather-input {
   text-align: center;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
+  padding: 0.8rem 1.4rem;
+  font-size: 1.1rem;
   border-radius: 8px;
   border: 1px solid #60cd62;
   background-color: #132f14;
@@ -19,7 +19,7 @@
 }
 
 .weather-button {
-  padding: 0.6rem 1.2rem;
+  padding: 0.8rem 1.4rem;
   border-radius: 8px;
   border: none;
   background-color: #4caf50;
@@ -33,12 +33,25 @@
   background-color: #43a047;
 }
 
-@media (max-width: 500px) {
+/* Mobilanpassning */
+@media (max-width: 700px) {
   .weather-input {
-    width: 100%;
-    max-width: none;
+    width: 60%;
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
   }
   .weather-button {
+    width: 35%;
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .weather-input,
+  .weather-button {
     width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
   }
 }
