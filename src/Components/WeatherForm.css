@@ -116,15 +116,17 @@
 /* Mobilanpassning */
 @media (max-width: 700px) {
   .weather-form {
-    flex-direction: column; /* staplar input och knapp */
+    flex-direction: column; /* staplar input + knapp */
     align-items: center; /* centrerar dem */
     gap: 0.5rem; /* mellanrum mellan input och knapp */
-    padding: 0 10px; /* liten marginal mot kanten */
+    padding: 0 15px; /* marginal mot kanten */
   }
+
   .weather-input,
   .weather-button {
-    width: 100%; /* fyller nästan hela skärmen */
-    max-width: 300px; /* stoppar den från att bli för stor */
+    width: 100%; /* fyller hela raden */
+    max-width: 300px; /* stoppar för storlek */
+    box-sizing: border-box; /* inkluderar padding i bredden */
   }
 }
 
