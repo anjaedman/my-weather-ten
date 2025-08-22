@@ -20,8 +20,8 @@
 }
 
 .weather-button {
-  width: 60%; /* kortare än input */
-  min-width: 120px;
+  width: 50%; /* kortare än input */
+  min-width: 100px;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   border: none;
