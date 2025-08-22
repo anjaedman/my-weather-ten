@@ -74,6 +74,31 @@ p {
   color: #faf8f8;
 }
 
+/* App.css */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 28px; /* större rubrik */
+  }
+
+  input {
+    width: 90%;
+    font-size: 18px;
+    padding: 14px;
+  }
+
+  button,
+  .toggle-btn {
+    width: 90%;
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .forecast-day {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
 /* Mobilanpassning */
 @media (max-width: 700px) {
   h1 {

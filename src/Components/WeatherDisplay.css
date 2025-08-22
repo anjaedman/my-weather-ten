@@ -115,7 +115,7 @@
     height: 50px;
   }
 }
-
+/* 
 @media (max-width: 500px) {
   .forecast-day {
     width: 100%;
@@ -127,5 +127,33 @@
   }
   .weather-day {
     justify-content: space-around;
+  }
+} */
+
+/* WeatherDisplay.css */
+@media (max-width: 500px) {
+  .weather-card,
+  .today-card {
+    min-width: 100%;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .weather-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .hour {
+    font-size: 1.1rem;
+  }
+
+  .temp {
+    font-size: 1.2rem;
+    padding: 4px 6px;
+  }
+
+  .desc {
+    font-size: 1rem;
   }
 }
