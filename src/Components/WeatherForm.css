@@ -10,6 +10,14 @@
   box-sizing: border-box;
 }
 
+.weather-form {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap; /* gör att input + knapp bryter rad på små skärmar */
+  margin-bottom: 1rem;
+}
+
 /* Dagens väder */
 .weather-today {
   display: flex;
@@ -107,13 +115,16 @@
 
 /* Mobilanpassning */
 @media (max-width: 700px) {
-  .weather-card,
-  .today-card {
-    min-width: 120px;
+  .weather-form {
+    flex-direction: column; /* staplar input och knapp */
+    align-items: center; /* centrerar dem */
+    gap: 0.5rem; /* mellanrum mellan input och knapp */
+    padding: 0 10px; /* liten marginal mot kanten */
   }
-  .weather-icon {
-    width: 50px;
-    height: 50px;
+  .weather-input,
+  .weather-button {
+    width: 100%; /* fyller nästan hela skärmen */
+    max-width: 300px; /* stoppar den från att bli för stor */
   }
 }
 
