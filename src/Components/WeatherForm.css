@@ -3,7 +3,13 @@
   flex-direction: column; /* input överst, knapp under */
   gap: 0.5rem;
   align-items: center;
-  margin-bottom: 1rem;
+
+  margin: 1rem;
+  width: 100%;
+  box-sizing: border-box; /* säkerställer att padding/margin räknas */
+  padding: 0 10px; /* 10px från vänster och höger på mobilen */
+
+  /* margin-bottom: 1rem; */
   /* margin-left: 3rem;
   margin-right: 3rem; */
 }
@@ -22,7 +28,7 @@
 }
 
 .weather-button {
-  width: 50%; /* kortare än input */
+  width: 60%; /* kortare än input */
   min-width: 100px;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -46,11 +52,5 @@
   }
   .weather-button {
     width: 80%;
-  }
-
-  .weather-form {
-    margin-bottom: 1rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
   }
 }
