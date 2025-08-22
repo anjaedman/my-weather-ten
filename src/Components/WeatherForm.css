@@ -1,25 +1,25 @@
 .weather-form {
   display: flex;
-  flex-direction: column; /* input + knapp under varandra på mobil */
   gap: 0.5rem;
   justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 1rem;
 }
 
 .weather-input {
   text-align: center;
   padding: 0.6rem 1.2rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #60cd62;
   background-color: #132f14;
   min-width: 150px;
+  max-width: 300px;
   color: #fff;
 }
 
 .weather-button {
   padding: 0.6rem 1.2rem;
-  font-size: 1.2rem;
   border-radius: 8px;
   border: none;
   background-color: #4caf50;
@@ -35,7 +35,10 @@
 
 /* Mobilanpassning */
 @media (max-width: 500px) {
-  .weather-input,
+  .weather-input {
+    width: 100%;
+    max-width: none;
+  }
   .weather-button {
     width: 100%;
   }

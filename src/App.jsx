@@ -9,19 +9,19 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState(null);
-  const [showForecast, setShowForecast] = useState(false); // styr 5-dygnsprognosen
+  const [showForecast, setShowForecast] = useState(false);
 
   const apiKey = "74f90edf917d0ac2f26cad59accec277";
 
   const fetchWeather = async (cityName) => {
     try {
       const weatherRes = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric&lang=sv`
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=74f90edf917d0ac2f26cad59accec277&units=metric&lang=sv`
       );
       setWeather(weatherRes.data);
 
       const forecastRes = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric&lang=sv`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=74f90edf917d0ac2f26cad59accec277&units=metric&lang=sv`
       );
       setForecast(forecastRes.data);
 
@@ -33,6 +33,7 @@ function App() {
     }
   };
 
+  // Ladda vädret direkt vid start
   useEffect(() => {
     fetchWeather(city);
   }, []);
@@ -40,7 +41,7 @@ function App() {
   const handleSearch = () => {
     if (city.trim() !== "") {
       fetchWeather(city);
-      setShowForecast(false); // göm 5-dygnsprognosen vid ny sökning
+      setShowForecast(false); // göm 5-dygnsprognosen tills man trycker på knappen
     }
   };
 
@@ -52,8 +53,7 @@ function App() {
 
       {error && <p>{error}</p>}
 
-      {/* WeatherDisplay visas alltid med dagens prognos */}
-      {weather && forecast && (
+      {weather && (
         <WeatherDisplay
           weather={weather}
           forecast={forecast}
@@ -61,7 +61,6 @@ function App() {
         />
       )}
 
-      {/* Toggle-knapp för 5-dygnsprognosen */}
       {forecast && (
         <button
           className="toggle-btn"

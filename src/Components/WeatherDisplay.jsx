@@ -3,14 +3,14 @@ import "./WeatherDisplay.css";
 function WeatherDisplay({ weather, forecast, showForecast }) {
   const desiredHours = [8, 12, 18, 23];
 
-  const closestHour = (hour) => {
-    return desiredHours.reduce((prev, curr) =>
+  const closestHour = (hour) =>
+    desiredHours.reduce((prev, curr) =>
       Math.abs(curr - hour) < Math.abs(prev - hour) ? curr : prev
     );
-  };
+
+  const today = new Date().toISOString().split("T")[0];
 
   // Dagens prognos
-  const today = new Date().toISOString().split("T")[0];
   const todayForecastList = forecast
     ? forecast.list.filter((item) => item.dt_txt.startsWith(today))
     : [];
@@ -49,7 +49,6 @@ function WeatherDisplay({ weather, forecast, showForecast }) {
       <p className="current-temp">{Math.round(weather.main.temp)}°C</p>
       <p className="current-desc">{weather.weather[0].description}</p>
 
-      {/* Dagens prognos alltid synlig */}
       {Object.keys(todayForecast).length > 0 && (
         <>
           <h3>Dagens prognos</h3>
@@ -72,7 +71,6 @@ function WeatherDisplay({ weather, forecast, showForecast }) {
         </>
       )}
 
-      {/* 5-dygnsprognos visas endast om showForecast är true */}
       {showForecast && forecast && (
         <>
           <h3>5-dygnsprognos</h3>
