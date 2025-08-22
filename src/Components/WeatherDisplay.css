@@ -1,5 +1,5 @@
 .weather-container {
-  background-color: #06180a; /* mörk bakgrund som du hade */
+  background-color: #06180a; /* mörk bakgrund */
   color: #fff;
   font-family: sans-serif;
   padding: 2rem;
@@ -26,14 +26,14 @@
   background: rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 0.5rem;
-  width: 140px; /* lika stor */
+  width: 140px; /* lika storlek som 5-dygns kort */
   box-sizing: border-box;
 }
 
-/* 5-dygnsprognos - dagar vertikalt */
+/* 5-dygnsprognos - dagarna under varandra */
 .forecast-container {
   display: flex;
-  flex-direction: column; /* dagarna under varandra */
+  flex-direction: column;
   gap: 1rem;
   width: 100%;
   max-width: 700px;
@@ -113,7 +113,7 @@
 @media (max-width: 500px) {
   .today-card,
   .weather-card {
-    width: 100%; /* en kort per rad */
+    width: 100%; /* ett kort per rad */
   }
   .forecast-day {
     width: 100%;
