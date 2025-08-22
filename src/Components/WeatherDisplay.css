@@ -1,5 +1,5 @@
 .weather-container {
-  background-color: #06180a; /* mörk bakgrund */
+  background-color: #06180a; /* mörk bakgrund som du hade */
   color: #fff;
   font-family: sans-serif;
   padding: 2rem;
@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-/* Dagens väder */
+/* Dagens prognos */
 .weather-today {
   display: flex;
   gap: 1rem;
@@ -19,19 +19,21 @@
   margin-bottom: 2rem;
 }
 
-.today-card {
-  flex: 0 0 auto;
-  max-width: 140px;
-  padding: 0.5rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.15);
+/* Gemensam kortstorlek för dagens och 5-dygns prognos */
+.today-card,
+.weather-card {
   text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 0.5rem;
+  width: 140px; /* lika stor */
+  box-sizing: border-box;
 }
 
-/* 5-dygnsprognos */
+/* 5-dygnsprognos - dagar vertikalt */
 .forecast-container {
   display: flex;
-  flex-direction: column; /* tvingar dagarna vertikalt */
+  flex-direction: column; /* dagarna under varandra */
   gap: 1rem;
   width: 100%;
   max-width: 700px;
@@ -56,15 +58,6 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: flex-start;
-}
-
-.weather-card {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 0.5rem;
-  width: 120px;
-  box-sizing: border-box;
 }
 
 .weather-icon {
@@ -98,6 +91,7 @@
   font-weight: bold;
   margin-bottom: 0.3rem;
 }
+
 .desc {
   font-size: 0.9rem;
   color: #eee;
@@ -105,9 +99,10 @@
 
 /* Mobilanpassning */
 @media (max-width: 700px) {
-  .weather-card,
-  .today-card {
-    min-width: 100px;
+  .today-card,
+  .weather-card {
+    width: 48%; /* två kort per rad */
+    min-width: 140px;
   }
   .weather-icon {
     width: 50px;
@@ -116,16 +111,11 @@
 }
 
 @media (max-width: 500px) {
+  .today-card,
+  .weather-card {
+    width: 100%; /* en kort per rad */
+  }
   .forecast-day {
     width: 100%;
-  }
-
-  .weather-card,
-  .today-card {
-    width: 100%;
-  }
-
-  .weather-day {
-    justify-content: center;
   }
 }
