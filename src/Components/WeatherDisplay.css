@@ -31,9 +31,10 @@
 /* 5-dygnsprognos */
 .forecast-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* dagarna vertikalt */
   gap: 1rem;
   width: 100%;
+  max-width: 700px;
 }
 
 .forecast-day {
@@ -54,7 +55,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: center; /* centrerar korten istället för flex-start */
+  justify-content: flex-start;
 }
 
 .weather-card {
@@ -97,6 +98,7 @@
   font-weight: bold;
   margin-bottom: 0.3rem;
 }
+
 .desc {
   font-size: 0.9rem;
   color: #eee;
@@ -106,54 +108,29 @@
 @media (max-width: 700px) {
   .weather-card,
   .today-card {
-    min-width: 100px;
-    width: 100px;
-    padding: 0.8rem;
-  }
-  .weather-icon {
-    width: 50px;
-    height: 50px;
-  }
-}
-/* 
-@media (max-width: 500px) {
-  .forecast-day {
     width: 100%;
-  }
-  .weather-card,
-  .today-card {
-    width: 100%;
-    max-width: none;
   }
   .weather-day {
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
   }
-} */
-
-/* WeatherDisplay.css */
-@media (max-width: 500px) {
-  .weather-card,
-  .today-card {
-    min-width: 100%;
-    width: 100%;
-    padding: 1rem;
-  }
-
   .weather-icon {
     width: 70px;
     height: 70px;
   }
-
   .hour {
-    font-size: 1.1rem;
-  }
-
-  .temp {
     font-size: 1.2rem;
-    padding: 4px 6px;
   }
-
+  .temp {
+    font-size: 1.4rem;
+  }
   .desc {
-    font-size: 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .forecast-day {
+    width: 100%;
   }
 }

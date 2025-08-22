@@ -1,8 +1,7 @@
-/* Grundinställningar */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #0d1f0d;
+  background-color: #0d1f0d; /* mörkgrön bakgrund */
   color: white;
   display: flex;
   justify-content: center;
@@ -11,8 +10,9 @@ body {
 }
 
 .App {
-  max-width: 700px;
   width: 100%;
+  max-width: 700px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -22,43 +22,12 @@ h1 {
   font-size: 28px;
 }
 
-/* Input + knapp */
-form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-input {
-  padding: 14px 16px;
-  border-radius: 8px;
-  border: none;
-  font-size: 18px;
-  width: 70%;
-  max-width: 300px;
-}
-
-button {
-  padding: 14px 18px;
-  border: none;
-  border-radius: 8px;
-  background: #2ecc71;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #27ae60;
-}
-
 /* Toggle-knapp */
 .toggle-btn {
   margin-top: 20px;
   background: #2ecc71;
   font-size: 16px;
-  padding: 12px 16px;
+  padding: 10px 14px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -74,47 +43,14 @@ p {
   color: #faf8f8;
 }
 
-/* App.css */
-@media (max-width: 500px) {
-  h1 {
-    font-size: 28px; /* större rubrik */
-  }
-
-  input {
-    width: 90%;
-    font-size: 18px;
-    padding: 14px;
-  }
-
-  button,
-  .toggle-btn {
-    width: 90%;
-    font-size: 18px;
-    padding: 12px;
-  }
-
-  .forecast-day {
-    width: 100%;
-    padding: 1rem;
-  }
-}
-
 /* Mobilanpassning */
 @media (max-width: 700px) {
   h1 {
     font-size: 24px;
   }
-
-  input {
-    width: 100%;
-    font-size: 16px;
-    padding: 12px;
-  }
-
+  input,
   button,
   .toggle-btn {
     width: 100%;
-    font-size: 16px;
-    padding: 12px;
   }
 }
