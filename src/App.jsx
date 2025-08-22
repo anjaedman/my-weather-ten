@@ -5,25 +5,26 @@ import WeatherDisplay from "./Components/WeatherDisplay";
 import "./App.css";
 
 function App() {
-  const [city, setCity] = useState("Uppsala"); // standardstad
+  const [city, setCity] = useState("Långshyttan");
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState(null);
-  const [showForecast, setShowForecast] = useState(false); // styr visning av 5-dygn
+  const [showForecast, setShowForecast] = useState(false);
 
-  const apiKey = "DIN_API_KEY";
+  const apiKey = "74f90edf917d0ac2f26cad59accec277";
 
   const fetchWeather = async (cityName) => {
     try {
       const weatherRes = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric&lang=sv`
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=74f90edf917d0ac2f26cad59accec277&units=metric&lang=sv`
       );
       setWeather(weatherRes.data);
 
       const forecastRes = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric&lang=sv`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=74f90edf917d0ac2f26cad59accec277&units=metric&lang=sv`
       );
       setForecast(forecastRes.data);
+
       setError(null);
     } catch (err) {
       setError("Kunde inte hämta vädret, kontrollera stadsnamnet.");
@@ -33,33 +34,24 @@ function App() {
   };
 
   useEffect(() => {
-    fetchWeather(city); // laddar Uppsala direkt
+    fetchWeather(city);
   }, []);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
+  const handleSearch = () => {
     if (city.trim() !== "") {
       fetchWeather(city);
-      setShowForecast(false); // göm prognos tills man aktivt trycker fram den
+      setShowForecast(false);
     }
   };
 
   return (
     <div className="App">
       <h1>Vädret</h1>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          placeholder="Skriv stad..."
-        />
-        <button type="submit">Sök</button>
-      </form>
+
+      <WeatherForm city={city} setCity={setCity} getWeather={handleSearch} />
 
       {error && <p>{error}</p>}
 
-      {/* Alltid dagens prognos */}
       {weather && (
         <WeatherDisplay
           weather={weather}
@@ -67,7 +59,6 @@ function App() {
         />
       )}
 
-      {/* Knapp för att visa/dölja 5-dygn */}
       {forecast && (
         <button
           className="toggle-btn"
