@@ -1,14 +1,16 @@
 .weather-container {
-  background-color: rgb(6, 24, 10);
-  min-height: 100vh;
-  padding: 2rem;
+  background-color: #06180a;
   color: #fff;
   font-family: sans-serif;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* Dagens väder */
 .weather-today {
   display: flex;
   gap: 1rem;
@@ -18,32 +20,42 @@
 }
 
 .today-card {
-  flex: 1 1 160px;
-  max-width: 200px;
+  flex: 0 0 auto;
+  max-width: 140px;
+  padding: 0.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  text-align: center;
 }
 
+/* 5-dygnsprognos */
 .forecast-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; /* tvingar dagarna vertikalt */
   gap: 1rem;
-  justify-content: center;
+  width: 100%;
+  max-width: 700px;
 }
 
 .forecast-day {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  display: block;
+  min-width: 100%; /* säkerställer full rad */
+  background: rgba(255, 255, 255, 0.08);
   padding: 1rem;
   border-radius: 12px;
-  min-width: 160px;
+  box-sizing: border-box;
+}
+
+.forecast-day h4 {
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .weather-day {
   display: flex;
-  gap: 0.5rem;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 0.5rem;
+  justify-content: flex-start;
 }
 
 .weather-card {
@@ -52,6 +64,7 @@
   border-radius: 12px;
   padding: 0.5rem;
   width: 120px;
+  box-sizing: border-box;
 }
 
 .weather-icon {
@@ -62,15 +75,23 @@
 /* Temperaturfärger */
 .temp.cold {
   background-color: #4aaaff;
+  border-radius: 6px;
+  padding: 2px 4px;
 }
 .temp.mild {
   background-color: #4caf50;
+  border-radius: 6px;
+  padding: 2px 4px;
 }
 .temp.warm {
   background-color: #ff9800;
+  border-radius: 6px;
+  padding: 2px 4px;
 }
 .temp.hot {
   background-color: #f44336;
+  border-radius: 6px;
+  padding: 2px 4px;
 }
 
 .hour {
@@ -83,13 +104,19 @@
 }
 
 /* Mobilanpassning */
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .weather-card,
-  .forecast-day {
+  .today-card {
     min-width: 100px;
   }
   .weather-icon {
     width: 50px;
     height: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .forecast-day {
+    width: 100%;
   }
 }

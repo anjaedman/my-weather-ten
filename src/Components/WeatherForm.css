@@ -1,16 +1,16 @@
 .weather-form {
-  margin-bottom: 1rem;
   display: flex;
   gap: 0.5rem;
   justify-content: center;
-  flex-wrap: wrap; /* ✅ gör att input + knapp bryter rad på mobil */
+  flex-wrap: wrap; /* gör att input + knapp bryter rad på små skärmar */
+  margin-bottom: 1rem;
 }
 
-.city-input {
+.weather-input {
   text-align: center;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 1px solid #60cd62;
   background-color: #132f14;
   min-width: 150px;
@@ -18,28 +18,28 @@
   color: #fff;
 }
 
-.search-button {
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+.weather-button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
   border: none;
   background-color: #4caf50;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.2s;
 }
 
-.search-button:hover {
+.weather-button:hover {
   background-color: #43a047;
 }
 
-/* 🔹 Mobilanpassning */
+/* Mobilanpassning */
 @media (max-width: 500px) {
-  .city-input {
+  .weather-input {
     width: 100%;
     max-width: none;
   }
-  .search-button {
+  .weather-button {
     width: 100%;
   }
 }

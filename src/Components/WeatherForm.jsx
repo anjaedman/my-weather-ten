@@ -1,9 +1,7 @@
 function WeatherForm({ city, setCity, getWeather }) {
   const handleSubmit = (e) => {
-    e.preventDefault(); // hindrar sidan från att ladda om
-    if (city.trim()) {
-      getWeather(); // ✅ anropar getWeather utan att skicka event
-    }
+    e.preventDefault();
+    if (city.trim()) getWeather();
   };
 
   return (

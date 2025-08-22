@@ -47,18 +47,14 @@ function App() {
   return (
     <div className="App">
       <h1>Vädret</h1>
-
       <WeatherForm city={city} setCity={setCity} getWeather={handleSearch} />
-
       {error && <p>{error}</p>}
-
-      {weather && (
+      {weather && forecast && (
         <WeatherDisplay
           weather={weather}
           forecast={showForecast ? forecast : null}
         />
       )}
-
       {forecast && (
         <button
           className="toggle-btn"
