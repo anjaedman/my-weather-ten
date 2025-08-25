@@ -1,6 +1,6 @@
 {
-  "name": "Min App",
-  "short_name": "App",
+  "name": "Min Väder App",
+  "short_name": "Vädret",
   "description": "Min fantastiska webbapp",
   "start_url": "/",
   "display": "standalone",
